@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using CertificationServer.Models;
 using CertificationServer.Models.Query;
 using CertificationServer.Services;
+using CertificationServer.Services.Crypt;
 using CertificationServer.Services.RDB;
 using CertificationServer.Services.RDB.Query.Postgres;
 using Microsoft.AspNetCore.Mvc;
@@ -29,9 +30,15 @@ namespace CertificationServer.Controllers
         }
         [HttpPost]
         public ReturnCertEntity PostRegistData(RegistEntity registData)
-            => PostgresService.ExecuteAsync(new RegistQuery(), registData, _appSettings.Postgres).Result as ReturnCertEntity;
+        {
+            var result = BCryptService.Regist(registData, _appSettings);
+            return (result.err == true)? new ReturnCertEntity() : result.data;
+        }
         [HttpPost]
         public ReturnCertEntity PostLoginData(LoginEntity loginData)
-            => PostgresService.ExecuteAsync(new LoginQuery(), loginData, _appSettings.Postgres).Result as ReturnCertEntity;
+        {
+            var result = BCryptService.Verify(loginData, _appSettings);
+            return (result.err == true) ? new ReturnCertEntity() : result.data;
+        }
     }
 }

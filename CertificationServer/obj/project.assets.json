@@ -5344,11 +5344,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\02.Project\\CertificationServer\\CertificationServer.csproj",
+      "projectUniqueName": "D:\\Development\\CertificationServer\\CertificationServer\\CertificationServer.csproj",
       "projectName": "CertificationServer",
-      "projectPath": "D:\\02.Project\\CertificationServer\\CertificationServer.csproj",
+      "projectPath": "D:\\Development\\CertificationServer\\CertificationServer\\CertificationServer.csproj",
       "packagesPath": "C:\\Users\\Sion\\.nuget\\packages\\",
-      "outputPath": "D:\\02.Project\\CertificationServer\\obj\\",
+      "outputPath": "D:\\Development\\CertificationServer\\CertificationServer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
